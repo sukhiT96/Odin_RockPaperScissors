@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Rock Paper Scissors</title>
+</head>
+<body>
+  <script>
+    let start_input;
+    while (start_input !== "R" | start_input !== "r" | start_input !== "P" | start_input !== "p" | start_input !== "S" | start_input !== "s" | start_input !== "Rock" | start_input !== "rock" | start_input !== "Paper" | start_input !== "paper" | start_input !== "Scissors" | start_input !== "scissors") {
+      start_input = prompt("Hello, Player! Press R for Rock, P for Paper, or S for Scissors. You can also type rock, paper or scissors (case insensitive). These are the only acceptable responses.")
+      if (start_input === "R" | start_input === "r" | start_input === "P" | start_input === "p" | start_input === "S" | start_input === "s" | start_input === "Rock" | start_input === "rock" | start_input === "Paper" | start_input === "paper" | start_input === "Scissors" | start_input === "scissors" ) {
+        break;
+      }
+    }
+    let user = (start_input.toUpperCase()).charAt(0);
+    console.log(start_input);
+    console.log(user);
+    
+    let compOutput;
+    function randomiser (min, max) {
+      compOutput = (Math.floor(Math.random()*(max-min))) + min;
+      return compOutput;
+      console.log(compOutput);
+    }
+    randomiser(1,4);
+    console.log(compOutput);
+
+    let computer;
+    if (compOutput === 1) {
+      computer = "Rock";
+    }
+    else if (compOutput === 2) {
+      computer = "Paper";
+    }
+    else {
+      computer = "Scissors";
+    };
+    let combo = user + ((computer.charAt(0)).toUpperCase());
+    if (combo === "RR" | combo === "PP" | combo === "SS") {
+      comboValue = 10;
+    }
+    else if (combo === "RP" | combo === "PS" | combo === "SR") {
+      comboValue = 11;
+    } else {
+      comboValue = 12};
+    function finalAlert (comboValue) {
+        comboValue === 10 ? alert(`It's a tie! The computer also chose ${computer}.`) : comboValue === 11 ? alert(`You lose! The computer chose ${computer}.`) :  alert(`Yayyy you win! The computer chose ${computer}.`);
+        console.log(comboValue);
+    };
+    finalAlert(comboValue);
+  </script>
+</body>
+</html>
