@@ -4,92 +4,26 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Rock Paper Scissors</title>
+  <script defer src="script.js"></script>
+  <link href="stylesheet.css" rel="stylesheet">
 </head>
 <body>
-  <script>
-    console.log("Hello Player! Welcome to the game of Rock Paper Scissors! We shall play the game for 5 rounds and decide the game's result after the last round. Get ready to play!");
-      alert("Hello Player! Welcome to the game of Rock Paper Scissors! We shall play the game for 5 rounds and decide the game's result after the last round. Get ready to play!");
-      
-      let round = 0;
-      let win = 0;
-      let tie = 0;
-      let lose = 0;
+  <div id="container">
+    <h1>Welcome Key Warrior!</h1>
+      <h2>This is a game of 5 rounds. The winner shall be declared after all rounds are played. Good Luck!</h2>
 
-      function player_input() {
-        let answer = prompt(`Hello, Player! This is round ${round + 1}. Press R for Rock, P for Paper, or S for Scissors. You can also type rock, paper or scissors (case insensitive). These are the only acceptable responses.`); 
-        if (answer != "R" && answer != "r" && answer != "P" && answer != "p" && answer != "S" && answer != "s" && answer != "Rock" && answer != "rock" && answer != "Paper" && answer != "paper" && answer != "Scissors" && answer != "scissors") {
-          while (answer != "R" && answer != "r" && answer != "P" && answer != "p" && answer != "S" && answer != "s" && answer != "Rock" && answer != "rock" && answer != "Paper" && answer != "paper" && answer != "Scissors" && answer != "scissors") {
-            answer = prompt ("Invalid reply. Only acceptable responses are R for Rock, P for Paper, or S for Scissors. You can also type rock, paper or scissors (case insensitive). Please retype your choice.");
-            if (answer === "R" | answer === "r" | answer === "P" | answer === "p" | answer === "S" | answer === "s" | answer === "Rock" | answer === "rock" | answer === "Paper" | answer === "paper" | answer === "Scissors" | answer === "scissors") {break;};
-          }
-        } else {console.log(`player's choice for round ${round+1}: ${answer}`);};
-        console.log(`player's choice for round ${round+1}: ${answer}`);
-        return ((answer.charAt(0).toUpperCase()));        
-      };
-  
-  
-      function randomiser() {
-        let random_choice = (Math.floor(Math.random()*(3))) + 1;
-        if (random_choice === 1) {
-          console.log (`Computer's Choice for round ${round+1}: Rock`);
-          return computer = "R"
-        } else if (random_choice === 2) {
-          console.log (`Computer's Choice for round ${round+1}: Paper`);
-          return computer = "P"
-        } else {
-          console.log (`Computer's Choice for round ${round+1}: Scissors`);
-          return "S";
-        };
-      };
-      
-      function game_logic () {
-        let combo = (player_input()).concat(randomiser());
-        console.log(`Round ${round+1} played`);
-        
-        let round_result;
-        if (combo === "RR" | combo === "PP"| combo === "SS") {
-            round_result = "Tie";
-            console.log(`Result for this round: ${round_result}`);
-            alert(`Round ${round+1} was a tie.`);
-            tie++;
-            round++;
-          } else if (combo === "RP" | combo === "PS"| combo === "SR") {
-            round_result = "Lose";
-            console.log(`Result for this round: ${round_result}`);
-            alert(`Oops! You lost round ${round+1}.`);
-            lose++;
-            round++;
-          } else {
-            round_result = "Win";
-            console.log(`Result for this round: ${round_result}`);
-            alert(`Yayy! You won round ${round+1}.`);
-            win++;
-            round++;
-          };    
-      };
+    <div id="player_buttons">
+      <button id="rock">Rock</button>
+      <button id="paper">Paper</button>
+      <button id="scissors">Scissors</button>
+    </div>
+    <div id="computer choice"></div>
+    <ul id="round_result_container">
 
-      for (let i = 1; i < 6; i ++) {
-        game_logic();
-      };
+    </ul>
+    <div id="final_result"></div>
+    <button id="reset">Reset Game</button>
 
-      if (win > lose && tie > 0) {
-        console.log (`Congrats! You won ${win} rounds out of 5 and tied ${tie} rounds. You won the game!`);
-        alert (`Congrats! You won ${win} rounds out of 5 and tied ${tie} rounds. You won the game.`);
-      } else if (win > lose && tie === 0) {
-        console.log (`Congrats! You won ${win} rounds out of 5 rounds. You won the game!`);
-        alert (`Congrats! You won ${win} rounds out of 5. You won the game`);
-      }
-        else if (lose > win && tie > 0) {
-          console.log (`Oops! You lost ${lose} rounds out of 5 and tied ${tie} rounds. You lost the game!`);
-          alert (`Oops! You lost ${lose} rounds out of 5 and tied ${tie} rounds. You lost the game!`);
-      } else if (lose > win && tie === 0) {
-        console.log (`Oops! You lost ${lose} rounds out of 5 rounds. You lost the game!`);
-          alert (`Oops! You lost ${lose} rounds out of 5 rounds. You lost the game!`);
-      } else {
-          console.log (`It's a draw! You tied ${tie} rounds out of 5 rounds.`);
-          alert (`It's a draw! You tied ${tie} rounds out of 5 rounds.`);
-      };
-
-  </script>
+  </div>
 </body>
 </html>
